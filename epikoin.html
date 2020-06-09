@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" /> 
+    <title>Επικοινωνία</title>
+	
+   <script>
+    // Clears all the text in the element with ID.
+	function clearElement(ID) {
+			var x = document.getElementById(ID);
+			x.innerHTML = " ";
+		}
+	
+	// AppendTo(ID,TEXT) adds the text to the element with ID.
+	function appendTo(ID,Text){
+			var x = document.getElementById(ID);
+			x.innerHTML = x.innerHTML + "<br/> - " + Text;
+		}
+	
+	function checkForm(){
+			clearElement("problemArea");
+			var x = document.getElementById('problemArea');
+			x.innerHTML = "Περιοχή Σφαλμάτων";
+			
+			// Each function is separately evaluated to get all errors.
+			var t1 = checkEmail();
+			var t2 = checkCategory();
+			return t1 && t2 ; 
+		}
+		
+	function checkCategory() 
+		{
+      var x = document.forms["gbForm"]["name"].value;
+
+      if (x==null || x=="" )			
+			{appendTo("problemArea", "Παρακαλώ, δώσε ένα όνομα");
+			return false;}
+		}	
+	function checkEmail(){
+			// Gets the value
+			var mail = document.forms[0].email.value;
+			// Checks the value
+		
+			// email must have the characters uom . 
+			if (mail.indexOf('uom') == -1) 
+				{appendTo("problemArea","Παρακαλώ δώσε ένα email."); return false;}
+			
+			return true;
+		}
+		
+	
+		
+   </script>
+    <style>
+
+.header {
+    overflow: hidden;
+    background-color: #125740;
+    padding: 40px 20px;
+    color:white;
+    text-align: center;
+}
+
+.background {
+  background-image: url("law_informatics.jpg");
+  background-position: right;
+  background-repeat:no-repeat;
+}
+
+.sidebar{
+  background-color: #FAEBD7;
+  width: 150px;
+  height: 108%;
+  position:absolute;
+}
+
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.sidebar_right{
+    float: right;
+    background-color: #FAEBD7;
+    width: 150px;
+    height:100%;
+    position:relative;
+    margin-right:0px;
+  }
+
+  .sidebar_right a {
+  display: block;
+  color: black;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.border{
+  margin-left: 180px;
+  margin-right: 180px;
+  height: 900px;
+  border: 10px solid black;
+  padding:40px
+}
+
+
+div.content {
+  margin-left: 200px;
+  margin-right: 150px;
+  padding: 1px 16px;
+  height: 1000px;
+  
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+      .formlabel {
+         font-weight:bold;
+         width: 250px;
+         margin-bottom: 12px;
+         float: left;
+         text-align: left;
+         clear: left;
+      }
+      .formfield {
+         font-weight:normal;
+         margin-bottom: 50px;
+         float: left;
+         text-align: left;
+      }
+
+      input, textarea, select {
+         border: 1px solid black;
+        }
+		
+	  div#problemArea{
+			padding:5px;
+			background-color:blue;
+			color: white;
+			float:right;
+      width:20%;
+      margin:50px;
+  } 
+  
+  footer {
+  background-color: black;
+  color:white;
+  text-align: center;
+  }
+		
+  </style>
+  </head>
+  <body class="background">
+    <h1 class="header">Επικοινωνία</h1>
+
+    <div class="sidebar">
+      <nav>
+        <ul>
+          <a href="page2.html">Επιπλέον</a>
+          <a href="#default">Επικοινωνία</a>
+       </ul>
+      </nav>
+
+    </div>
+    </div>
+
+    <div class="sidebar_right">
+      <nav>
+        <ul>
+          <a href="index.html">Επιστροφή στην αρχική σελίδα</a>
+        </ul>
+      </nav>
+    </div>
+
+  <div id="problemArea"> &larr; Περιοχή Σφάλματος <br/></div>
+  
+  <div class="border">
+
+
+  
+  <div class="content">
+
+    <form name="gbForm" method = "get" action = "deixe.html">
+
+    <div class="formlabel">Ονοματεπώνυμο</div>
+    
+    <div class="formfield"><input type="text" name="name"
+       size="50" required /></div>
+
+    <div class="formlabel">email επικοινωνίας</div>
+       <div class="formfield"><input type="email" name="email"
+          size="50" /></div>
+ 
+
+   
+
+	  <div class="formlabel">Θέλετε να μαθαίνετε περισσότερα νέα σχετικά με:</div>
+      <div class="formfield">
+        <input type="radio" name="epaggelma" value="DY"/>Την ομάδα των Jets<br />
+        <input type="radio" name="epaggelma" value="IY"/>Την πόλη της Νέας Υόρκης<br />
+        <input type="radio" name="epaggelma" value="AN"/>Το αμερικάνικο ποδόσφαιρο<br />
+        <input type="radio" name="epaggelma" value="AL"/>Τη διοργάνωση NFL<br />
+      </div>
+      
+      <div class="formlabel">Ενδιαφέρεστε να επικοινωνούμε μαζί σας μέσω:</div>
+      <div class="formfield">
+        <input type="checkbox" name="category" value="clean"/>Τηλεφώνου<br />
+        <input type="checkbox" name="category" value="service"/>Αλληλογραφίας<br />
+        <input type="checkbox" name="category" value="food_variety_and_quality"/>Ηλεκτορνικής Αλληλογραφίας<br />
+        <input type="checkbox" name="category" value="activities"/>Μέσω κοινωνικής δικτύωσης<br />
+      </div>
+
+    <div class="formlabel">Για ποια προιόντα ενδιαφέρεστε;:</div>
+      <div class="formfield">
+        <select size="4" name="nationality">
+          <option value="Greek" selected="selected">Αθλητικές εμφανίσεις</option>
+          <option value="EU">Αθλητικός ρουχισμός</option>
+          <option value="USA">NFL αντικείμενα</option>
+          <option value="Other">Διάφορα είδη Baseball</option>
+       
+        </select>
+      </div>
+
+
+      <div class="formlabel">Σχόλια:</div>
+      <div class="formfield">
+      <textarea name="comments" rows="5" cols="55"></textarea> 
+      </div>
+
+      
+      <div style="clear: left;">
+	      <input type="submit" value="Υποβολή" onclick="return checkForm(); "/>
+         <input type="reset" value="Καθαρισμός" />
+      </div>
+      </form>
+  </div>
+  
+</body>
+
+  <footer>
+    <h2 style="text-align: center;"> Copyright © Ιπποκράτης Κάργας </h2>
+
+
+  </footer>
+</html>

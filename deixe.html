@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Στοιχεία επικοινωνίας</title>
+
+		<style>
+
+		h1{
+			margin-left: 400px;
+		}
+		div#problemArea {border:solid 10px black; margin:50px; 
+			text-align: center;
+			margin:50px;
+			padding:5px;
+			background-color:#125740;
+			color: white;
+			float:left;
+			width:50%;
+			height: 600px;
+		} 
+		</style>
+
+
+
+	</head>
+	<body>
+		<h1> Στοιχεία Επικοινωνίας</h1>
+		<div id="problemArea"> Oι καταχωρήσεις που κάνατε: 
+						 <br/>----------------------------------------------- 
+
+						 <br/>
+						 <br/>
+						 <br/>
+
+						 <img src="jets.jpg" alt="jets logo" width="250" height="280" class="picture" />
+		
+		
+						</div>
+ <script>
+  // Utilities
+		
+ 
+
+var qd = {};
+location.search.substr(1).split("&").forEach(function(item) {var k = item.split("=")[0], v = decodeURIComponent(item.split("=")[1]); (k in qd) ? qd[k].push(v) : qd[k] = [v,]})
+
+		
+		
+		// AppendTo(ID,TEXT) adds the text to the element with ID.
+		function appendTo(ID,Text){
+			var x = document.getElementById(ID);
+			x.innerHTML = x.innerHTML + "<br/> - " + Text + "<br />";
+		}
+
+var first = qd.name;
+ first = first.toString().replace(/\+/g, " ");
+var second = qd.email;
+var third = qd.epaggelma;
+var fourth = qd.category;
+var fifth = qd.nationality;
+var sixth = qd.comments;
+    sixth = sixth.toString().replace(/\+/g, " ");
+        appendTo("problemArea", first);
+		appendTo("problemArea", second);
+		appendTo("problemArea", third);
+		appendTo("problemArea", fourth);
+		appendTo("problemArea", fifth);
+		appendTo("problemArea", sixth);
+	</script>  
+		
+	</body>
+</html>
